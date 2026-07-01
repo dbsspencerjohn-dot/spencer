@@ -1,8 +1,12 @@
 AUTHOR
 Name: Spencer Ibhafidon John
+
 Student ID: 20099070
+
 Degree: MSc Cybersecurity
+
 College: Dublin Business School
+
 Course Title: B9CY108 ADVANCED PROGRAMMING TECHNIQUES
 
 PROJECT OVERVIEW
