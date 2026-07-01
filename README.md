@@ -1,3 +1,10 @@
+AUTHOR
+Name: Spencer Ibhafidon John
+Student ID: 20099070
+Degree: MSc Cybersecurity
+College: Dublin Business School
+Course Title: B9CY108 ADVANCED PROGRAMMING TECHNIQUES
+
 PROJECT OVERVIEW
 
 It is an API based Issue and Vulnerability Tracking System in Python and Flask. The system allows an organisation to record, manage, monitor and resolve cyber security issues and vulnerabilities with the help of a RESTful API.
@@ -28,3 +35,5 @@ Delete issues
 Update existing issues
 Delete issues 
 Testing API with Postman.
+
+
