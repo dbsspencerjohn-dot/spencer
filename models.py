@@ -4,6 +4,7 @@ from datetime import datetime
 
 db = SQLAlchemy()
 
+# Create a model for the vulnerability issues
 class VulnIssue(db.Model):
     __tablename__ = "issues"
 
@@ -19,8 +20,8 @@ class VulnIssue(db.Model):
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(
         db.DateTime,
-        default=datetime.utcnow,
-        onupdate=datetime.utcnow
+        default=lambda: datetime.now(UTC),
+        onupdate=lambda: datetime.now(UTC)
     )
    
     def __repr__(self):
