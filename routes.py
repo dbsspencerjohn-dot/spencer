@@ -3,7 +3,7 @@ from models import db, VulnIssue
 
 api = Blueprint("api", __name__)
 
-
+#this route retrieves all vulnerability issues
 @api.route("/issues", methods=["GET"])
 def get_all_issues():
 
@@ -11,6 +11,20 @@ def get_all_issues():
 
     return jsonify([issue.to_dict() for issue in issues]), 200
 
+#this route retrieves a specific vulnerability issue by its ID
+@api.route("/issues/<int:issue_id>", methods=["GET"])
+def get_issue(issue_id):
+
+    issue = VulnIssue.query.get(issue_id)
+
+    if issue is None:
+        return jsonify({
+            "error": "Issue not found"
+        }), 404
+
+    return jsonify(issue.to_dict()), 200
+
+#this route creates a new vulnerability issue
 @api.route("/issues", methods=["POST"])
 def create_issue():
 
