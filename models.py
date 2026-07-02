@@ -10,18 +10,18 @@ class VulnIssue(db.Model):
 
     id = db.Column(db.Integer, primary_key=True,autoincrement=True)
     title = db.Column(db.String(100), nullable=False)
-    decription = db.Column(db.Text, nullable=False)
+    description = db.Column(db.Text, nullable=False)
     severity = db.Column(db.String(20), nullable=False)
     status = db.Column(db.String(20), nullable=False)
     reporter = db.Column(db.String(100), nullable=False)
     assigned_to = db.Column(db.String(100), nullable=False)
     affected_system = db.Column(db.String(150), nullable=False)
-    cvss_score = db.Column(db.Float)
+    cvss_score = db.Column(db.Float, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(
-        db.DateTime,
-        default=lambda: datetime.now(UTC),
-        onupdate=lambda: datetime.now(UTC)
+    db.DateTime,
+    default=datetime.utcnow,
+    onupdate=datetime.utcnow
     )
    
     def __repr__(self):

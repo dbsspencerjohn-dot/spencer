@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from models import db, Issue
+from models import db, VulnIssue
 
 api = Blueprint("api", __name__)
 
@@ -45,7 +45,7 @@ def create_issue():
             "error": "Invalid status"
         }), 400
 
-    issue = Issue(
+    issue = VulnIssue(
         title=data["title"],
         description=data["description"],
         severity=data["severity"],
