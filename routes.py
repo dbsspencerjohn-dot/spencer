@@ -6,8 +6,9 @@ api = Blueprint("api", __name__)
 #this route retrieves all vulnerability issues
 @api.route("/issues", methods=["GET"])
 def get_all_issues():
-
-    issues = VulnIssue.query.all()
+    #issues = VulnIssue.query.all()
+    # sort the issues by the timestamp in descending order 
+    issues = VulnIssue.query.order_by(VulnIssue.created_at.desc()).all()
 
     return jsonify([issue.to_dict() for issue in issues]), 200
 
