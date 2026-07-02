@@ -4,6 +4,13 @@ from models import db, VulnIssue
 api = Blueprint("api", __name__)
 
 
+@api.route("/issues", methods=["GET"])
+def get_all_issues():
+
+    issues = VulnIssue.query.all()
+
+    return jsonify([issue.to_dict() for issue in issues]), 200
+
 @api.route("/issues", methods=["POST"])
 def create_issue():
 
