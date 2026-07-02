@@ -26,3 +26,20 @@ class VulnIssue(db.Model):
    
     def __repr__(self):
         return f"VulnIssue(title={self.title})"
+    
+    # coversion method to convert the model instance to a dict 
+    def to_dict(self):
+
+        return {
+            "id": self.id,
+            "title": self.title,
+            "description": self.description,
+            "severity": self.severity,
+            "status": self.status,
+            "reporter": self.reporter,
+            "assigned_to": self.assigned_to,
+            "affected_system": self.affected_system,
+            "cvss_score": self.cvss_score,
+            "created_at": self.created_at.strftime("%Y-%m-%d %H:%M:%S"),
+            "updated_at": self.updated_at.strftime("%Y-%m-%d %H:%M:%S")
+        }
