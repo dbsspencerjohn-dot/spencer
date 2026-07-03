@@ -196,3 +196,4 @@ def delete_issue(issue_id):
     }), 200
 
 # create a postman test for the API routes. POSTMAN TESTS
+# used AI( google overview AI assistant) to generate the postman tests for the API routes, and read through the postman documentation to understand how to use postman to test the API routes.
