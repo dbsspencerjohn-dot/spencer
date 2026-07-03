@@ -201,9 +201,7 @@ def delete_issue(issue_id):
 # api route to render the issues page from template florder
 @api.route("/issues-page")
 def issues_page():
-    issues = VulnIssue.query.order_by(
-        VulnIssue.created_at.desc()
-    ).all()
+    issues = VulnIssue.query.order_by(VulnIssue.created_at.desc()).all()
 
     return render_template("issues.html",  issues=issues)
 
