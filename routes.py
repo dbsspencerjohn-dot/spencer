@@ -174,3 +174,23 @@ def update_issue(issue_id):
         "message": "Issue updated successfully",
         "issue": issue.to_dict()
     }), 200
+
+# delete an issue with a specific id
+@api.route("/issues/<int:issue_id>", methods=["DELETE"])
+def delete_issue(issue_id):
+
+  #query the database for the issue with the given id
+    issue = db.session.get(VulnIssue, issue_id)
+
+# return an error message if the issue is not found i.e id does not exist in the database
+    if issue is None:
+        return jsonify({
+            "error": "Issue not found"
+        }), 404
+
+    db.session.delete(issue)
+    db.session.commit()
+
+    return jsonify({
+        "message": "Issue deleted successfully"
+    }), 200
