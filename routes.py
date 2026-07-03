@@ -214,4 +214,4 @@ def create_issue_page():
 @api.route("/reports")
 def reports_page():
 
-    return "<h1>Reports Coming Soon</h1>"
+    return render_template("report.html")
