@@ -209,3 +209,9 @@ def issues_page():
 def create_issue_page():
 
     return render_template("create_issue.html")
+
+#api route to render the reports page from template folder
+@api.route("/reports")
+def reports_page():
+
+    return "<h1>Reports Coming Soon</h1>"
