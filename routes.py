@@ -194,3 +194,5 @@ def delete_issue(issue_id):
     return jsonify({
         "message": "Issue deleted successfully"
     }), 200
+
+# create a postman test for the API routes. POSTMAN TESTS
