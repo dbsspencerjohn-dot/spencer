@@ -1,8 +1,28 @@
-{% extends "base.html" %} {% block title %} All Issues {% endblock %} {% block
+<!-- {% extends "base.html" %} {% block title %} All Issues {% endblock %} {% block
 content %}
 
 <h2>All Issues</h2>
 
 <p>This page will display every vulnerability.</p>
 
-{% endblock %}
+{% endblock %} -->
+
+
+<td>{{ issue.title }}</td>
+
+<td>
+
+{% if issue.severity=="Critical" %}
+
+
+
+{{ issue.severity }}
+
+</span>
+
+{% elif issue.severity=="High" %}
+
+
+
+{{ issue.severity }}
+</span>
