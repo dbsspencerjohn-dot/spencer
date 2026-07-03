@@ -203,3 +203,9 @@ def delete_issue(issue_id):
 def issues_page():
 
     return render_template("issues.html")
+
+# api route to render the create issue page from template folder
+@api.route("/create-issue")
+def create_issue_page():
+
+    return render_template("create_issue.html")
