@@ -90,3 +90,87 @@ def create_issue():
         "message": "Issue created successfully",
         "issue_id": issue.id
     }), 201
+
+# Update an existing vulnerability issue
+@api.route("/issues/<int:issue_id>", methods=["PUT"])
+def update_issue(issue_id):
+
+    # Find the issue
+    issue = db.session.get(VulnIssue, issue_id)
+
+    if issue is None:
+        return jsonify({
+            "error": "Issue not found"
+        }), 404
+
+    data = request.get_json()
+
+    if not data:
+        return jsonify({
+            "error": "Request body must be JSON"
+        }), 400
+
+    # Allowed values
+    valid_severity = ["Low", "Medium", "High", "Critical"]
+
+    valid_status = [
+        "Open",
+        "In Progress",
+        "Resolved",
+        "Closed"
+    ]
+
+    # Update title
+    if "title" in data:
+        if not str(data["title"]).strip():
+            return jsonify({"error": "Title cannot be empty"}), 400
+        issue.title = data["title"]
+
+    # Update description
+    if "description" in data:
+        if not str(data["description"]).strip():
+            return jsonify({"error": "Description cannot be empty"}), 400
+        issue.description = data["description"]
+
+    # Update severity
+    if "severity" in data:
+
+        if data["severity"] not in valid_severity:
+            return jsonify({
+                "error": "Severity must be Low, Medium, High or Critical"
+            }), 400
+
+        issue.severity = data["severity"]
+
+    # Update status
+    if "status" in data:
+
+        if data["status"] not in valid_status:
+            return jsonify({
+                "error": "Invalid status"
+            }), 400
+
+        issue.status = data["status"]
+
+    # Update reporter
+    if "reporter" in data:
+        issue.reporter = data["reporter"]
+
+    # Update assigned user
+    if "assigned_to" in data:
+        issue.assigned_to = data["assigned_to"]
+
+    # Update affected system
+    if "affected_system" in data:
+        issue.affected_system = data["affected_system"]
+
+    # Update CVSS score
+    if "cvss_score" in data:
+        issue.cvss_score = data["cvss_score"]
+
+    db.session.commit()
+
+    return jsonify({
+        "message": "Issue updated successfully",
+        "issue": issue.to_dict()
+    }), 200
