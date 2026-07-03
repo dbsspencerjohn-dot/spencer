@@ -10,7 +10,12 @@ def get_all_issues():
     # sort the issues by the timestamp in descending order 
     issues = VulnIssue.query.order_by(VulnIssue.created_at.desc()).all()
 
-    return jsonify([issue.to_dict() for issue in issues]), 200
+    #return jsonify([issue.to_dict() for issue in issues]), 200
+    # return a JSON response with the count of issues and the list of issues
+    return jsonify({
+    "count": len(issues),
+    "issues": [issue.to_dict() for issue in issues]
+}), 200
 
 #this route retrieves a specific vulnerability issue by its ID
 @api.route("/issues/<int:issue_id>", methods=["GET"])
