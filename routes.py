@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, request
+from flask import Blueprint, jsonify, render_template, request
 from models import db, VulnIssue
 
 api = Blueprint("api", __name__)
@@ -197,3 +197,9 @@ def delete_issue(issue_id):
 
 # create a postman test for the API routes. POSTMAN TESTS
 # used AI( google overview AI assistant) to generate the postman tests for the API routes, and read through the postman documentation to understand how to use postman to test the API routes.
+
+# api route to render the issues page from template florder
+@api.route("/issues-page")
+def issues_page():
+
+    return render_template("issues.html")
