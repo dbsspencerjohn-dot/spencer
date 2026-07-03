@@ -7,22 +7,19 @@ content %}
 
 {% endblock %} -->
 
-
 <td>{{ issue.title }}</td>
 
 <td>
+  {% if issue.severity == "Critical" %}
+  <span style="color: red; font-weight: bold"> {{ issue.severity }} </span>
 
-{% if issue.severity=="Critical" %}
+  {% elif issue.severity == "High" %}
+  <span style="color: orange; font-weight: bold"> {{ issue.severity }} </span>
 
+  {% elif issue.severity == "Medium" %}
+  <span style="color: gold"> {{ issue.severity }} </span>
 
-
-{{ issue.severity }}
-
-</span>
-
-{% elif issue.severity=="High" %}
-
-
-
-{{ issue.severity }}
-</span>
+  {% else %}
+  <span style="color: green"> {{ issue.severity }} </span>
+  {% endif %}
+</td>
