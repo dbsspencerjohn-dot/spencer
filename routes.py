@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, render_template, request
+from flask import Blueprint, jsonify, redirect, render_template, request
 from models import db, VulnIssue
 
 api = Blueprint("api", __name__)
@@ -206,10 +206,41 @@ def issues_page():
     return render_template("issues.html",  issues=issues)
 
 # api route to render the create issue page from template folder
-@api.route("/create-issue")
+@api.route("/create-issue", methods=["GET", "POST"])
 def create_issue_page():
 
+    if request.method == "POST":
+
+        issue = VulnIssue(
+
+            title=request.form["title"],
+
+            description=request.form["description"],
+
+            severity=request.form["severity"],
+
+            status=request.form["status"],
+
+            reporter=request.form["reporter"],
+
+            assigned_to=request.form["assigned_to"],
+
+            affected_system=request.form["affected_system"],
+
+            cvss_score=float(request.form["cvss_score"])
+
+        )
+
+        db.session.add(issue)
+
+        db.session.commit()
+
+        return redirect("/issues-page")
+
     return render_template("create_issue.html")
+
+
+    #return render_template("create_issue.html")
 
 #api route to render the reports page from template folder
 @api.route("/reports")
