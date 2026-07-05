@@ -91,6 +91,34 @@ def create_issue():
         "issue_id": issue.id
     }), 201
 
+# edit the issues With a specific id
+@api.route("/edit-issue/<int:issue_id>", methods=["GET", "POST"])
+def edit_issue(issue_id):
+
+    issue = db.session.get(VulnIssue, issue_id)
+
+    if issue is None:
+        return "Issue not found", 404
+
+    if request.method == "POST":
+
+        issue.title = request.form["title"]
+        issue.description = request.form["description"]
+        issue.severity = request.form["severity"]
+        issue.status = request.form["status"]
+        issue.reporter = request.form["reporter"]
+        issue.assigned_to = request.form["assigned_to"]
+        issue.affected_system = request.form["affected_system"]
+        issue.cvss_score = float(request.form["cvss_score"])
+
+        db.session.commit()
+
+        return redirect("/issues-page")
+
+    return render_template(
+        "edit_issue.html",
+        issue=issue
+    )
 # Update an existing vulnerability issue
 @api.route("/issues/<int:issue_id>", methods=["PUT"])
 def update_issue(issue_id):
