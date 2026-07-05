@@ -1,0 +1,130 @@
+{% extends "base.html" %} {% block title %} Edit Issue {% endblock %} {% block
+content %}
+
+<h2 class="mb-4">Edit Vulnerability Issue</h2>
+
+<form method="POST">
+  <div class="mb-3">
+    <label class="form-label">Title</label>
+    <input
+      type="text"
+      class="form-control"
+      name="title"
+      value="{{ issue.title }}"
+      required
+    />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Description</label>
+
+    <textarea class="form-control" name="description" rows="4" required>
+{{ issue.description }}</textarea
+    >
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <label class="form-label"> Severity </label>
+
+      <select class="form-select" name="severity">
+        <option {% if issue.severity="" ="Low" %}selected{% endif %}>
+          Low
+        </option>
+
+        <option {% if issue.severity="" ="Medium" %}selected{% endif %}>
+          Medium
+        </option>
+
+        <option {% if issue.severity="" ="High" %}selected{% endif %}>
+          High
+        </option>
+
+        <option {% if issue.severity="" ="Critical" %}selected{% endif %}>
+          Critical
+        </option>
+      </select>
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label"> Status </label>
+
+      <select class="form-select" name="status">
+        <option {% if issue.status="" ="Open" %}selected{% endif %}>
+          Open
+        </option>
+
+        <option {% if issue.status="" ="In Progress" %}selected{% endif %}>
+          In Progress
+        </option>
+
+        <option {% if issue.status="" ="Resolved" %}selected{% endif %}>
+          Resolved
+        </option>
+
+        <option {% if issue.status="" ="Closed" %}selected{% endif %}>
+          Closed
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="mb-3">
+    <label class="form-label"> Reporter </label>
+
+    <input
+      type="text"
+      class="form-control"
+      name="reporter"
+      value="{{ issue.reporter }}"
+      required
+    />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label"> Assigned To </label>
+
+    <input
+      type="text"
+      class="form-control"
+      name="assigned_to"
+      value="{{ issue.assigned_to }}"
+      required
+    />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label"> Affected System </label>
+
+    <input
+      type="text"
+      class="form-control"
+      name="affected_system"
+      value="{{ issue.affected_system }}"
+      required
+    />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label"> CVSS Score </label>
+
+    <input
+      type="number"
+      step="0.1"
+      min="0"
+      max="10"
+      class="form-control"
+      name="cvss_score"
+      value="{{ issue.cvss_score }}"
+      required
+    />
+  </div>
+
+  <button class="btn btn-success">Update Issue</button>
+
+  <a href="/issues-page" class="btn btn-secondary"> Cancel </a>
+</form>
+
+{% endblock %}
