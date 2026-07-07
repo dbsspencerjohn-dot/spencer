@@ -4,3 +4,4 @@ __pycache__/
 instance/
 .env
 database.db
+edit_issue.old.html
