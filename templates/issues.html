@@ -43,7 +43,9 @@ content %}
         Edit
       </a>
       |
-      <a href="#">Delete</a>
+      <a href="/delete-issue/{{ issue.id }}" class="btn btn-danger btn-sm">
+        Delete
+      </a>
     </td>
   </tr>
   {% endfor %}
