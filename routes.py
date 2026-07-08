@@ -204,7 +204,7 @@ def update_issue(issue_id):
     }), 200
 
 # delete an issue with a specific id
-@api.route("/issues/<int:issue_id>", methods=["DELETE"])
+'''@api.route("/issues/<int:issue_id>", methods=["DELETE"])
 def delete_issue(issue_id):
 
   #query the database for the issue with the given id
@@ -221,7 +221,26 @@ def delete_issue(issue_id):
 
     return jsonify({
         "message": "Issue deleted successfully"
-    }), 200
+    }), 200 '''
+@api.route("/delete-issue/<int:issue_id>", methods=["GET", "POST"])
+def delete_issue_page(issue_id):
+
+    issue = db.session.get(VulnIssue, issue_id)
+
+    if issue is None:
+        return f"Issue number not found", 404
+
+    if request.method == "POST":
+
+        db.session.delete(issue)
+        db.session.commit()
+
+        return redirect("/issues-page")
+
+    return render_template(
+        "delete_issue.html",
+        issue=issue
+    )
 
 # create a postman test for the API routes. POSTMAN TESTS
 # used AI( google overview AI assistant) to generate the postman tests for the API routes, and read through the postman documentation to understand how to use postman to test the API routes.
