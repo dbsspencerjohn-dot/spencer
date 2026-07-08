@@ -262,18 +262,22 @@ def view_issue_page(issue_id):
 # api route to render the issues page from template florder
 @api.route("/issues-page")
 def issues_page():
-    search = request.args.get("search")
+    search = request.args.get("search", "").strip()
+
     issues = VulnIssue.query
-    
+
     if search:
         issues = issues.filter(
             VulnIssue.title.contains(search))
 
-    issues = issues.filter( VulnIssue.title.contains(search) )
+    issues = issues.order_by(
+        VulnIssue.created_at.desc()).all()
 
-    issues = VulnIssue.query.order_by(VulnIssue.created_at.desc()).all()
-
-    return render_template("issues.html", issues=issues, search=search)
+    return render_template(
+        "issues.html",
+        issues=issues,
+        search=search
+    )
 
 
 # api route to render the create issue page from template folder
