@@ -1,0 +1,121 @@
+{% extends "base.html" %} {% block title %} View Issue {% endblock %} {% block
+content %}
+
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Vulnerability Issue Details</h2>
+
+    <div>
+      <a href="/issues-page" class="btn btn-secondary"> Back </a>
+
+      <a href="/edit-issue/{{ issue.id }}" class="btn btn-warning"> Edit </a>
+    </div>
+  </div>
+
+  <div class="card shadow-sm">
+    <div class="card-body">
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <strong>Issue ID</strong>
+        </div>
+        <div class="col-md-9">{{ issue.id }}</div>
+      </div>
+
+      <hr />
+
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <strong>Title</strong>
+        </div>
+        <div class="col-md-9">{{ issue.title }}</div>
+      </div>
+
+      <hr />
+
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <strong>Description</strong>
+        </div>
+        <div class="col-md-9">{{ issue.description }}</div>
+      </div>
+
+      <hr />
+
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <strong>Severity</strong>
+        </div>
+        <div class="col-md-9">
+          <span class="badge bg-danger"> {{ issue.severity }} </span>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <strong>Status</strong>
+        </div>
+        <div class="col-md-9">{{ issue.status }}</div>
+      </div>
+
+      <hr />
+
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <strong>Reporter</strong>
+        </div>
+        <div class="col-md-9">{{ issue.reporter }}</div>
+      </div>
+
+      <hr />
+
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <strong>Assigned To</strong>
+        </div>
+        <div class="col-md-9">{{ issue.assigned_to }}</div>
+      </div>
+
+      <hr />
+
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <strong>Affected System</strong>
+        </div>
+        <div class="col-md-9">{{ issue.affected_system }}</div>
+      </div>
+
+      <hr />
+
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <strong>CVSS Score</strong>
+        </div>
+        <div class="col-md-9">{{ issue.cvss_score }}</div>
+      </div>
+
+      {% if issue.created_at %}
+      <hr />
+
+      <div class="row mb-3">
+        <div class="col-md-3">
+          <strong>Created At</strong>
+        </div>
+        <div class="col-md-9">{{ issue.created_at }}</div>
+      </div>
+      {% endif %} {% if issue.updated_at %}
+      <hr />
+
+      <div class="row">
+        <div class="col-md-3">
+          <strong>Last Updated</strong>
+        </div>
+        <div class="col-md-9">{{ issue.updated_at }}</div>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}
