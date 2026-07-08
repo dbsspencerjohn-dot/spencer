@@ -2,7 +2,27 @@
 content %}
 
 <h2>All Issues</h2>
+<form method="GET" class="mb-3">
+  <div class="row">
+    <div class="col-md-8">
+      <input
+        type="text"
+        class="form-control"
+        name="search"
+        placeholder="Search by title..."
+        value="{{ search if search else '' }}"
+      />
+    </div>
 
+    <div class="col-md-2">
+      <button type="submit" class="btn btn-primary w-100">Search</button>
+    </div>
+
+    <div class="col-md-2">
+      <a href="/issues-page" class="btn btn-secondary w-100"> Clear </a>
+    </div>
+  </div>
+</form>
 <table border="1" cellpadding="8">
   <tr>
     <th>ID</th>
