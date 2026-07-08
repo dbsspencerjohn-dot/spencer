@@ -242,6 +242,20 @@ def delete_issue_page(issue_id):
         issue=issue
     )
 
+@api.route("/view_issue/<int:issue_id>", methods=["GET"]) #/view_issue/{{ issue.id }}
+def view_issue_page(issue_id):
+
+    issue = db.session.get(VulnIssue, issue_id)
+
+    if issue is None:
+        return f"Issue number not found", 404
+
+    return render_template(
+        "view_issue.html",
+        issue=issue
+    )
+
+
 # create a postman test for the API routes. POSTMAN TESTS
 # used AI( google overview AI assistant) to generate the postman tests for the API routes, and read through the postman documentation to understand how to use postman to test the API routes.
 
