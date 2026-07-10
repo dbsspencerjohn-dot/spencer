@@ -43,3 +43,26 @@ class VulnIssue(db.Model):
             "created_at": self.created_at.strftime("%Y-%m-%d %H:%M:%S"),
             "updated_at": self.updated_at.strftime("%Y-%m-%d %H:%M:%S")
         }
+
+# Create a model for application users
+class User(db.Model):
+
+    __tablename__ = "users"
+    id = db.Column(
+        db.Integer,
+        primary_key=True,
+        autoincrement=True
+    )
+    username = db.Column(
+        db.String(50),
+        unique=True,
+        nullable=False
+    )
+    password = db.Column(
+        db.String(255),
+        nullable=False
+    )
+
+    def __repr__(self):
+
+        return f"User(username={self.username})"
