@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, redirect, render_template, request
+from flask import Blueprint, jsonify, redirect, render_template, request, session, flash, url_for
 from models import db, VulnIssue
 
 api = Blueprint("api", __name__)
@@ -322,3 +322,9 @@ def create_issue_page():
 def reports_page():
 
     return render_template("report.html")
+
+# display the login page
+@api.route("/login", methods=["GET", "POST"])
+def login():
+
+    return render_template("login.html")
