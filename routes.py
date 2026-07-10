@@ -281,7 +281,8 @@ def issues_page():
 
     issues = issues.order_by(
         VulnIssue.created_at.desc()).all()
-
+    if not login_required():
+        return redirect(url_for("api.login"))
     return render_template(
         "issues.html",
         issues=issues,
@@ -292,7 +293,8 @@ def issues_page():
 # api route to render the create issue page from template folder
 @api.route("/create-issue", methods=["GET", "POST"])
 def create_issue_page():
-
+    if not login_required():
+        return redirect(url_for("api.login"))
     if request.method == "POST":
 
         issue = VulnIssue(
@@ -318,7 +320,7 @@ def create_issue_page():
         db.session.add(issue)
 
         db.session.commit()
-
+        
         return redirect("/issues-page")
 
     return render_template("create_issue.html")
@@ -329,7 +331,8 @@ def create_issue_page():
 #api route to render the reports page from template folder
 @api.route("/reports")
 def reports_page():
-
+    if not login_required():
+        return redirect(url_for("api.login"))
     return render_template("report.html")
 
 # display the login page
