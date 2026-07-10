@@ -1,7 +1,7 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for
 from config import Config
 from models import db, User
-from routes import api
+from routes import api, login_required
 from werkzeug.security import generate_password_hash
 
 app = Flask(__name__)
@@ -30,6 +30,8 @@ app.register_blueprint(api)
 
 @app.route("/")
 def home():
+    if not login_required():
+        return redirect(url_for("api.login"))
     return render_template("index.html")
 
 
