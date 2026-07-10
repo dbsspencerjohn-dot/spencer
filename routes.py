@@ -12,6 +12,13 @@ def login_required():
 
     return True
 
+@api.route("/logout")
+def logout():
+
+    session.clear()
+
+    return redirect(url_for("api.login"))
+
 #this route retrieves all vulnerability issues
 @api.route("/issues", methods=["GET"])
 def get_all_issues():
