@@ -4,6 +4,14 @@ from werkzeug.security import check_password_hash
 
 api = Blueprint("api", __name__)
 
+# heck whether a user is logged in
+def login_required():
+
+    if "username" not in session:
+        return False
+
+    return True
+
 #this route retrieves all vulnerability issues
 @api.route("/issues", methods=["GET"])
 def get_all_issues():
