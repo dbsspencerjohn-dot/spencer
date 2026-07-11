@@ -11,33 +11,18 @@ Course Title: B9CY108 ADVANCED PROGRAMMING TECHNIQUES
 
 PROJECT OVERVIEW
 
-It is an API based Issue and Vulnerability Tracking System in Python and Flask. The system allows an organisation to record, manage, monitor and resolve cyber security issues and vulnerabilities with the help of a RESTful API.
+# REFERENCES
 
-This project has been designed for the module Advanced Programming (P04) Continuous Assessment.
-
-OBJECTIVES
-
-The aims of this project are to:
-
-Create a REST API with Python & Flask.
-Put in place full Create, Read, Update and Delete (CRUD).
-Use a relational database for storing issue information.
-Ensure that data entered by users is correct before saving data records.
-Support searching and filtering of vulnerabilities.
-Create summary reports of issues that are recorded.
-Develop software on GitHub - continuous commits.
-
-FEATURES 
-
-Existing planned features include:
-
-Create new issues
-View all issues
-View a single issue
-Update existing issues
-Delete issues
-Update existing issues
-Delete issues 
-Testing API with Postman.
-
-
+- https://stackoverflow.com/questions/19315567/returning-rendered-template-with-flask-restful-shows-html-in-browser
+- https://flask.palletsprojects.com/en/stable/tutorial/database/
+- https://www.geeksforgeeks.org/python/connect-flask-to-a-database-with-flask-sqlalchemy/
+- https://www.geeksforgeeks.org/python/declaring-models-in-flask/
+- ( Python Flask Tutorial #6 How to render HTML file in Flask) https://www.youtube.com/watch?v=bCaPDiOUqjU
+- https://www.geeksforgeeks.org/python/flask-app-routing/
+- https://flask.palletsprojects.com/en/stable/quickstart/
+- https://flask.palletsprojects.com/en/stable/templating/
+- https://www.geeksforgeeks.org/python/templating-with-jinja2-in-flask/
+- https://www.geeksforgeeks.org/python/flask-middlewares/
+- https://medium.com/@ritika.atal.work/crud-mapping-to-http-verbs-354a3c0009f5
+- https://www.postman.com/api-platform/api-testing/
+- https://getbootstrap.com/docs/4.4/components/forms/
