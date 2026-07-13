@@ -26,3 +26,12 @@ PROJECT OVERVIEW
 - https://medium.com/@ritika.atal.work/crud-mapping-to-http-verbs-354a3c0009f5
 - https://www.postman.com/api-platform/api-testing/
 - https://getbootstrap.com/docs/4.4/components/forms/
+- https://stackoverflow.com/questions/14343812/redirecting-to-url-in-flask
+- flask-restful/flask-restful#114
+- https://stackoverflow.com/questions/55311465/what-url-can-docker-container-a-use-to-access-another-docker-container-b-same-d
+- https://medium.com/@knowledgelibary/python-flask-documentation-760b718d4246
+- (https://stackoverflow.com/questions/56828564/when-should-you-use-python-flask-conditionals-vs-jinja2-html-template-conditiona)
+- https://docs.docker.com/guides/databases/
+- https://developer.ibm.com/tutorials/docker-dev-db/
+- https://docs.docker.com/compose/gettingstarted/
+- https://www.geeksforgeeks.org/python/how-to-use-flask-session-in-python-flask/
