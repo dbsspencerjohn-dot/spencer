@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify, redirect, render_template, request, session, flash, url_for
 from models import db, VulnIssue,User
 from werkzeug.security import check_password_hash
+from sqlalchemy import func
 
 api = Blueprint("api", __name__)
 
@@ -338,9 +339,44 @@ def create_issue_page():
 #api route to render the reports page from template folder
 @api.route("/reports")
 def reports_page():
+
+    total_issues = VulnIssue.query.count()
+
+    open_issues = VulnIssue.query.filter_by(status="Open").count()
+
+    resolved_issues = VulnIssue.query.filter_by(
+        status="Resolved"
+    ).count()
+
+    closed_issues = VulnIssue.query.filter_by(
+        status="Closed"
+    ).count()
+
+    critical_issues = VulnIssue.query.filter_by(
+        severity="Critical"
+    ).count()
+
+    high_issues = VulnIssue.query.filter_by(
+        severity="High"
+    ).count()
+
+    medium_issues = VulnIssue.query.filter_by(
+        severity="Medium"
+    ).count()
+
+    low_issues = VulnIssue.query.filter_by(
+        severity="Low"
+    ).count()
+    average_cvss = db.session.query(
+        func.avg(VulnIssue.cvss_score)
+    ).scalar()
+    if average_cvss is None:
+        average_cvss = 0
+
+    average_cvss = round(average_cvss, 2)
     if not login_required():
         return redirect(url_for("api.login"))
-    return render_template("report.html")
+    return render_template("report.html", total_issues=total_issues, open_issues=open_issues, resolved_issues=resolved_issues, closed_issues=closed_issues, critical_issues=critical_issues,high_issues=high_issues, medium_issues=medium_issues, low_issues=low_issues, average_cvss=average_cvss)
 
 # display the login page
 @api.route("/login", methods=["GET", "POST"])
