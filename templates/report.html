@@ -1,8 +1,98 @@
-{% extends "base.html" %} {% block title %} All Issues {% endblock %} {% block
+{% extends "base.html" %} {% block title %} Reports {% endblock %} {% block
 content %}
 
-<h2>All Issues</h2>
+<h2 class="mb-4">System Reports</h2>
 
-<p>This page will display every report logged.</p>
+<div class="row">
+  <div class="col-md-3 mb-3">
+    <div class="card text-center border-primary">
+      <div class="card-body">
+        <h5>Total Issues</h5>
+
+        <h2>{{ total_issues }}</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 mb-3">
+    <div class="card text-center border-warning">
+      <div class="card-body">
+        <h5>Open Issues</h5>
+
+        <h2>{{ open_issues }}</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 mb-3">
+    <div class="card text-center border-success">
+      <div class="card-body">
+        <h5>Resolved Issues</h5>
+
+        <h2>{{ resolved_issues }}</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 mb-3">
+    <div class="card text-center border-secondary">
+      <div class="card-body">
+        <h5>Closed Issues</h5>
+
+        <h2>{{ closed_issues }}</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<h3>Severity Summary</h3>
+
+<table class="table table-bordered">
+  <thead class="table-dark">
+    <tr>
+      <th>Severity</th>
+
+      <th>Total</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>Critical</td>
+
+      <td>{{ critical_issues }}</td>
+    </tr>
+
+    <tr>
+      <td>High</td>
+
+      <td>{{ high_issues }}</td>
+    </tr>
+
+    <tr>
+      <td>Medium</td>
+
+      <td>{{ medium_issues }}</td>
+    </tr>
+
+    <tr>
+      <td>Low</td>
+
+      <td>{{ low_issues }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<div class="card">
+  <div class="card-body text-center">
+    <h4>Average CVSS Score</h4>
+
+    <h1>{{ average_cvss }}</h1>
+  </div>
+</div>
 
 {% endblock %}
