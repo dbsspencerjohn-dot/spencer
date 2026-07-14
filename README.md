@@ -29,9 +29,15 @@ PROJECT OVERVIEW
 - https://stackoverflow.com/questions/14343812/redirecting-to-url-in-flask
 - flask-restful/flask-restful#114
 - https://stackoverflow.com/questions/55311465/what-url-can-docker-container-a-use-to-access-another-docker-container-b-same-d
+- https://docs.docker.com/compose/gettingstarted/
 - https://medium.com/@knowledgelibary/python-flask-documentation-760b718d4246
 - (https://stackoverflow.com/questions/56828564/when-should-you-use-python-flask-conditionals-vs-jinja2-html-template-conditiona)
 - https://docs.docker.com/guides/databases/
 - https://developer.ibm.com/tutorials/docker-dev-db/
 - https://docs.docker.com/compose/gettingstarted/
 - https://www.geeksforgeeks.org/python/how-to-use-flask-session-in-python-flask/
+- https://stackoverflow.com/questions/8561470/sqlalchemy-filtering-by-relationship-attribute
+- https://docs.sqlalchemy.org/en/21/orm/queryguide/select.html
+- https://docs.sqlalchemy.org/en/21/orm/session_api.html
+- https://docs.sqlalchemy.org/en/20/tutorial/metadata.html#declaring-mapped-classes
+- https://docs.docker.com/engine/storage/volumes/
