@@ -289,8 +289,6 @@ def issues_page():
 
     issues = issues.order_by(
         VulnIssue.created_at.desc()).all()
-    if not login_required():
-        return redirect(url_for("api.login"))
     return render_template(
         "issues.html",
         issues=issues,
@@ -301,8 +299,6 @@ def issues_page():
 # api route to render the create issue page from template folder
 @api.route("/create-issue", methods=["GET", "POST"])
 def create_issue_page():
-    if not login_required():
-        return redirect(url_for("api.login"))
     if request.method == "POST":
 
         issue = VulnIssue(
@@ -374,8 +370,6 @@ def reports_page():
         average_cvss = 0
 
     average_cvss = round(average_cvss, 2)
-    if not login_required():
-        return redirect(url_for("api.login"))
     return render_template("report.html", total_issues=total_issues, open_issues=open_issues, resolved_issues=resolved_issues, closed_issues=closed_issues, critical_issues=critical_issues,high_issues=high_issues, medium_issues=medium_issues, low_issues=low_issues, average_cvss=average_cvss)
 
 # display the login page
