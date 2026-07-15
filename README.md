@@ -9,6 +9,8 @@ College: Dublin Business School
 
 Course Title: B9CY108 ADVANCED PROGRAMMING TECHNIQUES
 
+Demo Link to application : - http://52.91.198.7:5000/
+
 PROJECT OVERVIEW
 
 # REFERENCES
@@ -41,3 +43,6 @@ PROJECT OVERVIEW
 - https://docs.sqlalchemy.org/en/21/orm/session_api.html
 - https://docs.sqlalchemy.org/en/20/tutorial/metadata.html#declaring-mapped-classes
 - https://docs.docker.com/engine/storage/volumes/
+- https://codesignal.com/learn/courses/diving-deeper-into-images-containers/lessons/deleting-images-and-containers
+- https://www.datacamp.com/tutorial/docker-stop-all-containers?utm_cid=19589720821&utm_aid=186331393869&utm_campaign=230119_1-ps-other~dsa-tofu~all_2-b2c_3-emea_4-prc_5-na_6-na_7-le_8-pdsh-go_9-nb-e_10-na_11-na&utm_loc=1007882-&utm_mtd=-c&utm_kw=&utm_source=google&utm_medium=paid_search&utm_content=ps-other~emea-en~dsa~tofu~tutorial~docker&gad_source=1&gad_campaignid=19589720821&gbraid=0AAAAADQ9WsGYWiU51yhPWvTkcly7JUDaO&gclid=CjwKCAjwvNfSBhBiEiwAyaGMCUnTmX9_gyZvhw73GTVDQR1bFe0yiUzhuaP8a_HA9d-dAvv08hfBhBoC5DkQAvD_BwE
+- https://www.datacamp.com/tutorial/add-users-to-docker-group?utm_cid=19589720821&utm_aid=186331393869&utm_campaign=230119_1-ps-other~dsa-tofu~all_2-b2c_3-emea_4-prc_5-na_6-na_7-le_8-pdsh-go_9-nb-e_10-na_11-na&utm_loc=1007882-&utm_mtd=-c&utm_kw=&utm_source=google&utm_medium=paid_search&utm_content=ps-other~emea-en~dsa~tofu~tutorial~docker&gad_source=1&gad_campaignid=19589720821&gbraid=0AAAAADQ9WsGYWiU51yhPWvTkcly7JUDaO&gclid=CjwKCAjwvNfSBhBiEiwAyaGMCWWaAWB3X5K4RY-wuA5pD8pW02AtDl8ZlmrvlnWEJmFRwelrNCSFqhoCu4QQAvD_BwE
