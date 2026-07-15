@@ -1,24 +1,9 @@
 from flask import Blueprint, jsonify, redirect, render_template, request, session, flash, url_for
-from models import db, VulnIssue,User
-from werkzeug.security import check_password_hash
+from models import db, VulnIssue
 from sqlalchemy import func
 
 api = Blueprint("api", __name__)
 
-# heck whether a user is logged in
-def login_required():
-
-    if "username" not in session:
-        return False
-
-    return True
-
-@api.route("/logout")
-def logout():
-
-    session.clear()
-
-    return redirect(url_for("api.login"))
 
 #this route retrieves all vulnerability issues
 @api.route("/issues", methods=["GET"])
@@ -373,18 +358,18 @@ def reports_page():
     return render_template("report.html", total_issues=total_issues, open_issues=open_issues, resolved_issues=resolved_issues, closed_issues=closed_issues, critical_issues=critical_issues,high_issues=high_issues, medium_issues=medium_issues, low_issues=low_issues, average_cvss=average_cvss)
 
 # display the login page
-@api.route("/login", methods=["GET", "POST"])
-def login():
+# @api.route("/login", methods=["GET", "POST"])
+# def login():
 
-    if request.method == "POST":
-        username = request.form["username"]
-        password = request.form["password"]
+#     if request.method == "POST":
+#         username = request.form["username"]
+#         password = request.form["password"]
 
-        user = User.query.filter_by(username=username).first()
-        if user and check_password_hash(user.password,password):
-            session["username"] = user.username
-            return redirect(url_for("home"))
-        else:
-            flash ("Invalid Username or Password")
+#         user = User.query.filter_by(username=username).first()
+#         if user and check_password_hash(user.password,password):
+#             session["username"] = user.username
+#             return redirect(url_for("home"))
+#         else:
+#             flash ("Invalid Username or Password")
     
-    return render_template("login.html")
+#     return render_template("login.html")
