@@ -15,6 +15,10 @@ PROJECT OVERVIEW
 
 # REFERENCES
 
+## Code Attributions
+
+The following external resources were used during the development of this project:
+
 - https://stackoverflow.com/questions/19315567/returning-rendered-template-with-flask-restful-shows-html-in-browser
 - https://flask.palletsprojects.com/en/stable/tutorial/database/
 - https://www.geeksforgeeks.org/python/connect-flask-to-a-database-with-flask-sqlalchemy/
